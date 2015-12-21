@@ -18,7 +18,7 @@ public class ViewManager : MonoBehaviour {
 
 	void Update()
 	{
-		Planet planet = GameManager.instance.ship.planet;
+		Planet planet = GameManager.instance.ship.GetPlanet();
 
 		// TODO: set UIs to id # to make switching easier
 		if (planet == null)
