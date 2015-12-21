@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Ship : MonoBehaviour {
 
+<<<<<<< HEAD
 	/// <summary>
 	/// The instance.
 	/// </summary>
@@ -12,6 +13,8 @@ public class Ship : MonoBehaviour {
 	/// <summary>
 	/// The crew.
 	/// </summary>
+=======
+>>>>>>> master
 	private List<Crew> crew;
 
 	/// <summary>
@@ -23,6 +26,7 @@ public class Ship : MonoBehaviour {
 	/// The resources.
 	/// </summary>
 	private Dictionary<Resource, int> resources;
+<<<<<<< HEAD
 
 	/// <summary>
 	/// The planet.
@@ -78,3 +82,7 @@ public class Ship : MonoBehaviour {
 
 
 }
+=======
+	public Planet planet;
+}
+>>>>>>> master

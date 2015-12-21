@@ -33,7 +33,7 @@ public class Starmap : MonoBehaviour {
 
 		//TODO: Generate the planet randomly
 		Planet p = planet.GetComponent<Planet> ();
-		p.Init ("MVP Tutorial");
+		//p.Init ("MVP Tutorial");
 		planets[0] = p;
 	}
 

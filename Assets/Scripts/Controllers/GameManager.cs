@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance;
-
 	private bool travel = false;
 	public bool Travel {
 		get{ return travel;}
@@ -69,5 +68,4 @@ public class GameManager : MonoBehaviour {
 			entry.Value.DoAction(entry.Key, ship.GetPlanet(), ship); 
 		}
 	}
-
 }

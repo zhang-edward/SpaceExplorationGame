@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Planet : MonoBehaviour {
 
+<<<<<<< HEAD
 	/// <summary>
 	/// The name of the planet.
 	/// </summary>
@@ -185,4 +186,6 @@ public class Planet : MonoBehaviour {
 	public void RemoveResources(Resource res, int num) {
 		resources [res] -= num;
 	}
+=======
+>>>>>>> master
 }
