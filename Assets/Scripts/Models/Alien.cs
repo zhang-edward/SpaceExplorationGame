@@ -53,15 +53,4 @@ public class Alien : MonoBehaviour {
 	public void SetStrength(int strength) {
 		this.strength = strength;
 	}
-
-	/// <summary>
-	/// Attacks the crew.
-	/// </summary>
-	/// <param name="crew">Crew.</param>
-	public void AttackCrew(Crew crew) {
-		int dmg = strength - crew.GetStrength ();
-		if (dmg > 0) {
-			crew.SetHealth(crew.GetHealth() - dmg);
-		}
-	}
 }

@@ -13,16 +13,4 @@ public class Crew : MonoBehaviour {
 	public int Strength {
 		get{return strength;}
 	}
-
-	public void Damage(int amt)
-	{
-		// TODO: effects and shit
-		health -= amt;
-	}
-
-	public void Heal(int amt)
-	{
-		// TODO: effects and shit
-		health += amt;
-	}
 }
