@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class ActionInterface : MonoBehaviour {
+public abstract class Action : MonoBehaviour {
 
 	/// <summary>
 	/// Whether or not this action leads to combat.
@@ -12,14 +12,17 @@ public abstract class ActionInterface : MonoBehaviour {
 	/// Gets or sets a value indicating whether this instance is combat.
 	/// </summary>
 	/// <value><c>true</c> if this instance is combat; otherwise, <c>false</c>.</value>
-	protected bool IsCombat {
+	public bool IsCombat {
 		get{return combat;}
 		set{combat = value;}
 	}
 
 	/// <summary>
-	/// Dos the action to the crew.
+	/// Dos the action.
 	/// </summary>
+	/// <returns>string describing the action</returns>
 	/// <param name="crew">Crew.</param>
-	public abstract void DoAction(Crew crew);
+	/// <param name="planet">Planet.</param>
+	/// <param name="ship">Ship.</param>
+	public abstract string DoAction(Crew crew, Planet planet, Ship ship);
 }

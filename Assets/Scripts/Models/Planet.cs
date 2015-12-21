@@ -33,8 +33,22 @@ public class Planet : MonoBehaviour {
 	/// True if a base has been established.
 	/// </summary>
 	private bool hasBase = false; 
-	
-	// Use this for initialization
+
+
+	/// <summary>
+	/// Amount of explored (Max = 100).
+	/// </summary>
+	private int explored; 
+
+	public int Explored {
+		get{ return explored;}
+		set{ explored = value;}
+	}
+
+	private static string[] names = new string[6] {"Wood", "Stone", "Metal", "Gas",
+		"Plastic", "Gems"};
+    
+    // Use this for initialization
 	void Start () {
 	
 	}
@@ -51,6 +65,8 @@ public class Planet : MonoBehaviour {
 	public void Init(string name) {
 		this.name = name;
 		civType = GenCivType ();
+
+		//TODO: Figure out resources
 	}
 
 	/// <summary>
@@ -59,6 +75,18 @@ public class Planet : MonoBehaviour {
 	/// <returns>The civ type.</returns>
 	int GenCivType() {
 		return Random.Range (1, 3);
+	}
+
+	/// <summary>
+	/// Gens the resources.
+	/// </summary>
+	/// <returns>The resources.</returns>
+	Resource[] GenResources(Resource[] resources) {
+		Resource[] defres = new Resource[3];
+		for(int i = 0; i < defres.Length; i++) {
+			defres[i] = resources[i];
+		}
+		return defres;
 	}
 
 	/// <summary>
@@ -91,6 +119,15 @@ public class Planet : MonoBehaviour {
 	/// <returns>The resource.</returns>
 	public void SetResourceTypes(Resource[] resourceTypes) {
 		this.resourceTypes = resourceTypes;
+	}
+
+	/// <summary>
+	/// Discovers a new resource.
+	/// </summary>
+	public void DiscoverResource() {
+		if (explored > 10) {
+			
+		}
 	}
 
 	/// <summary>
@@ -141,10 +178,11 @@ public class Planet : MonoBehaviour {
 	}
 
 	/// <summary>
-	/// Raises the mouse down event.
+	/// Removes the resources.
 	/// </summary>
-	public void OnMouseDown() {
-		Debug.Log ("Travelled to " + name);
-		GameManager.instance.Travel (this);
+	/// <param name="res">Res.</param>
+	/// <param name="num">Number.</param>
+	public void RemoveResources(Resource res, int num) {
+		resources [res] -= num;
 	}
 }

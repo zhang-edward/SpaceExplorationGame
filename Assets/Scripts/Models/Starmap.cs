@@ -14,6 +14,11 @@ public class Starmap : MonoBehaviour {
 	/// </summary>
 	public GameObject planetPrefab;
 
+	/// <summary>
+	/// The res prefabs.
+	/// </summary>
+	public GameObject[] resPrefabs = new GameObject[6];
+
 	// Use this for initialization
 	void Start () {
 		

@@ -12,4 +12,12 @@ public class TravelController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	/// <summary>
+	/// Travel this instance.
+	/// </summary>
+	public string Travel(Ship ship, Planet dest) {
+		ship.SetPlanet (dest);
+		return "Ship travelled to "  + dest.GetName();
+	}
 }
