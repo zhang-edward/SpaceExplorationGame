@@ -10,4 +10,5 @@ public class Ship : MonoBehaviour {
 	private float money;
 	private Dictionary<Resource, int> resources;
 	public Planet planet;
+
 }
