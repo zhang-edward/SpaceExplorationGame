@@ -26,5 +26,6 @@ public class ExploreController : Action {
 		}
 		planet.Explored += 1;
 		Debug.Log ("Planet Explored!");
+		return null;
 	}
 }

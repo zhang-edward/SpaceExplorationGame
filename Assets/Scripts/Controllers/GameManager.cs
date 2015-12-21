@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
 		set{ travel = value;}
 	}
 
+	public Starmap starmap;
+
 	/// <summary>
 	/// Reference to the ship.
 	/// </summary>
@@ -26,7 +28,15 @@ public class GameManager : MonoBehaviour {
 	/// The list of crew to action mappings.
 	/// </summary>
 	public Dictionary<Crew, Action> actionList = new Dictionary<Crew, Action>();
-	
+
+	/// <summary>
+	/// Initialize this instance
+	/// </summary>
+	void Awake() {
+		starmap = Transform.Find ("Starmap").gameObject.GetComponent<Starmap>();
+		ship = Transform.Find ("Ship").gameObject.GetComponent<Ship> ();
+	}
+
 	/// <summary>
 	/// Allow players to pick actions.
 	/// </summary>
@@ -51,6 +61,13 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public void 
+	/// <summary>
+	/// Does the actions for each crew member.
+	/// </summary>
+	public void DoActions() {
+		foreach (KeyValuePair<Crew, Action> entry in actionList) {
+			entry.Value.DoAction(entry.Key, ship.GetPlanet(), ship); 
+		}
+	}
 
 }
