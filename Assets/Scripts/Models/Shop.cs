@@ -7,9 +7,4 @@ public class Shop : MonoBehaviour {
 	public int CrewPrice {
 		get{return crewPrice;}
 	}
-
-	public void OnSell(Resource resource, int amt) 
-	{
-
-	}
 }
