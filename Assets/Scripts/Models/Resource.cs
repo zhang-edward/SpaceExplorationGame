@@ -11,7 +11,7 @@ public class Resource : MonoBehaviour {
 	/// <summary>
 	/// The name.
 	/// </summary>
-	private string name;
+	private string Name{get; set;}
 
 	// Use this for initialization
 	void Start () {
