@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
 	public void Init()
 	{
 		ship.Init();
-		starMap.Init();
+		starmap.Init();
 		shop.Init();
 	}
 
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour {
 
 	public void SetBase()
 	{
-		ship.planet.hasBase = true;
+		ship.planet.ToggleBase();
 		turn ++;
 	}
 }

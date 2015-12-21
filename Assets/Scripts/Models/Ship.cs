@@ -7,7 +7,7 @@ public class Ship : MonoBehaviour {
 	public static Ship instance;
 
 	private List<Crew> crew;
-	private int money;
+	private float money;
 	private Dictionary<Resource, int> resources;
 	public Planet planet;
 }

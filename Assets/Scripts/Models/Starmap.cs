@@ -22,7 +22,7 @@ public class Starmap : MonoBehaviour {
 	/// <summary>
 	/// Initialize this instance.
 	/// </summary>
-	void Init() {
+	public void Init() {
 		planets = new List<Planet> ();
 		GameObject planet = Instantiate (planetPrefab, transform.position, Quaternion.identity) as GameObject; 
 
