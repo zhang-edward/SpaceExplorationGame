@@ -3,10 +3,19 @@ using System.Collections;
 
 public class ViewManager : MonoBehaviour {
 
+	/// <summary>
+	/// The singleton instance.
+	/// </summary>
 	public static ViewManager instance;
 
-	// UI
+	/// <summary>
+	/// The starmap UI.
+	/// </summary>
 	public GameObject StarmapUI;
+
+	/// <summary>
+	/// The planet UI.
+	/// </summary>
 	public GameObject PlanetUI;
 
 	// UI Overlay
