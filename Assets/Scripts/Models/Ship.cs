@@ -60,7 +60,21 @@ public class Ship : MonoBehaviour {
 		this.planet = planet;
 	}
 
+	/// <summary>
+	/// Gets the crew.
+	/// </summary>
+	/// <returns>The crew.</returns>
+	public List<Crew> GetCrew() {
+		return crew;
+	}
 
+	/// <summary>
+	/// Sets the crew.
+	/// </summary>
+	/// <param name="crew">Crew.</param>
+	public void SetCrew(List<Crew> crew) {
+		this.crew = crew;
+	}
 
 
 }

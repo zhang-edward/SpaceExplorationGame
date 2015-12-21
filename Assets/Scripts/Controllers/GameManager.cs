@@ -25,17 +25,32 @@ public class GameManager : MonoBehaviour {
 	/// <summary>
 	/// The list of crew to action mappings.
 	/// </summary>
-	public Dictionary<Crew, Action> actionList;
+	public Dictionary<Crew, Action> actionList = new Dictionary<Crew, Action>();
 	
 	/// <summary>
 	/// Allow players to pick actions.
 	/// </summary>
 	public void PickActions() {
 		if (travel) {
-			//TODO: Hardcoded, get planet input from View Manager
-			Planet dest = null;
-			TravelController.Travel(ship, dest);
+			Planet dest = null; //FIXME
+			TravelController.Travel (ship, dest);
+		} else {
+			foreach (Crew member in ship.GetCrew()){
+				string actionName = null; // FIXME 
+				switch(actionName) {
+					case "harvest": 
+						actionList[member] = new HarvestController();
+						break;
+					case "explore":
+						actionList[member] = new ExploreController();
+						break;
+					default:
+						break;
+				}
+			}
 		}
 	}
+
+	public void 
 
 }
