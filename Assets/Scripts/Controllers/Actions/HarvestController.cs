@@ -28,5 +28,6 @@ public class HarvestController : Action {
 
 		return member.Name + " got 5 " + res[resnum].GetName() + "!"; */
 		Debug.Log ("Harvest Resources!");
+		return "";
 	}
 }

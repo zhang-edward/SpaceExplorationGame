@@ -5,11 +5,6 @@ using System.Collections.Generic;
 public class Ship : MonoBehaviour {
 
 	/// <summary>
-	/// The instance.
-	/// </summary>
-	public static Ship instance;
-
-	/// <summary>
 	/// The crew.
 	/// </summary>
 	private List<Crew> crew;

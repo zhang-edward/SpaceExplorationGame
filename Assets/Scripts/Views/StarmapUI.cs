@@ -3,13 +3,8 @@ using System.Collections;
 
 public class StarmapUI : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public void Travel(Planet planet)
+	{
+		GameManager.instance.ship.SetPlanet(planet);
 	}
 }

@@ -7,7 +7,7 @@ public class Planet : MonoBehaviour {
 	/// <summary>
 	/// The name of the planet.
 	/// </summary>
-	private string name;
+	private string Name{get; set;}
 
 	/// <summary>
 	/// The resources of this planet.

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 	/// <summary>
 	/// Reference to the ship.
 	/// </summary>
-	public static Ship ship;
+	public Ship ship;
 
 	/// <summary>
 	/// The ship prefab used to instantiate the ship.
@@ -32,15 +32,29 @@ public class GameManager : MonoBehaviour {
 	/// Initialize this instance
 	/// </summary>
 	void Awake() {
-		starmap = Transform.Find ("Starmap").gameObject.GetComponent<Starmap>();
-		ship = Transform.Find ("Ship").gameObject.GetComponent<Ship> ();
+		if (instance == null)
+			instance = this;
+		else if (instance != this)
+			Destroy(gameObject);
+
+		DontDestroyOnLoad(gameObject);
 	}
 
 	/// <summary>
 	/// Allow players to pick actions.
 	/// </summary>
-	public void PickActions() {
-		if (travel) {
+	public void AssignAction(Crew crew, int actionNum) {
+
+		if (actionNum == 0)
+		{
+			actionList[crew] = new HarvestController();
+		}
+		else if (actionNum == 1)
+		{
+			actionList[crew] = new ExploreController();
+		}
+
+		/*if (travel) {
 			Planet dest = null; //FIXME
 			TravelController.Travel (ship, dest);
 		} else {
@@ -57,7 +71,7 @@ public class GameManager : MonoBehaviour {
 						break;
 				}
 			}
-		}
+		}*/
 	}
 
 	/// <summary>
