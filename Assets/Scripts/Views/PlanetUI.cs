@@ -3,13 +3,20 @@ using System.Collections;
 
 public class PlanetUI : MonoBehaviour {
 
+	private Ship ship;
+
 	// Use this for initialization
-	void Start () {
-	
+	void Awake () {
+		ship = GameManager.instance.ship;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+
+	/// <summary>
+	/// Assigns the crew.
+	/// </summary>
+	/// <param name="crew">Crew.</param>
+	/// <param name="action">Action.</param>
+	public void AssignCrew()
+	{
 	}
 }

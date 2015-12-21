@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShipUI : MonoBehaviour {
+public class ShopUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
