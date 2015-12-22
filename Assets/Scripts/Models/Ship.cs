@@ -7,7 +7,7 @@ public class Ship : MonoBehaviour {
 	/// <summary>
 	/// The crew.
 	/// </summary>
-	private List<Crew> crew;
+	public List<Crew> crewList { get; set; }
 
 	/// <summary>
 	/// The money.
@@ -22,7 +22,7 @@ public class Ship : MonoBehaviour {
 	/// <summary>
 	/// The planet.
 	/// </summary>
-	private Planet planet;
+	public Planet planet{ get; set; }
 
 	/// <summary>
 	/// Adds the resources.
@@ -39,35 +39,5 @@ public class Ship : MonoBehaviour {
 	/// <param name="amt">Amt.</param>
 	public void AddMoney(int amt) {
 		money += amt;
-	}
-
-	/// <summary>
-	/// Initializes a new instance of the <see cref="Ship"/> class.
-	/// </summary>
-	public Planet GetPlanet() {
-		return planet;
-	}
-
-	/// <summary>
-	/// Sets the planet.
-	/// </summary>
-	public void SetPlanet(Planet planet) {
-		this.planet = planet;
-	}
-
-	/// <summary>
-	/// Gets the crew.
-	/// </summary>
-	/// <returns>The crew.</returns>
-	public List<Crew> GetCrew() {
-		return crew;
-	}
-
-	/// <summary>
-	/// Sets the crew.
-	/// </summary>
-	/// <param name="crew">Crew.</param>
-	public void SetCrew(List<Crew> crew) {
-		this.crew = crew;
 	}
 }
