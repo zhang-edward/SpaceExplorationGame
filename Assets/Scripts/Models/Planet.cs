@@ -47,7 +47,11 @@ public class Planet {
 
 	private static string[] names = new string[6] {"Wood", "Stone", "Metal", "Gas",
 		"Plastic", "Gems"};
-	
+
+	/// <summary>
+	/// Initializes a new instance of the <see cref="Planet"/> class.
+	/// </summary>
+	/// <param name="name">Name.</param>
 	public Planet(string name)
 	{
 		//TODO: Figure out resources
@@ -55,28 +59,12 @@ public class Planet {
 		civType = GenCivType ();
 	}
 
-/*	/// <summary>
-	/// Initialize with the specified name.
-	/// </summary>
-	/// <param name="name">Name.</param>
-	public void Init(string name) {
-<<<<<<< HEAD
-=======
-		this.name = name;
-		this.civType = GenCivType ();
->>>>>>> refs/remotes/origin/master
-
-
-
-	}*/
-
 	/// <summary>
 	/// Generate the type of civ
 	/// </summary>
 	/// <returns>The civ type.</returns>
 	int GenCivType() {
 		int civ = Random.Range (1, 4);
-		Debug.Log ("Civtype=" + civ);
 		return civ;
 	}
 

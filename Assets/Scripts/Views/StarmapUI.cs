@@ -31,20 +31,22 @@ public class StarmapUI : MonoBehaviour {
 	/// </summary>
 	public void Init()
 	{
+		// Instantiate planet ui buttons using planet data from starmap model
 		foreach (Planet planet in starmap.planets)
 		{
 			GameObject o = Instantiate(planetButtonPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+			o.transform.SetParent (this.transform);		// for organization in the hierarchy
 
-			o.transform.SetParent (this.transform);
-
+			// TODO: make a parent class of Starmap Button for other objects like asteroids, space stations, etc.
 			PlanetButton pButton = o.GetComponent<PlanetButton>();
-			pButton.Init(planet);
+			// initialize the planetButton, passing in a reference to this ui and the planet data
+			pButton.Init(this, planet);
 		}
+		Debug.Log ("Planets Generated: " + starmap.planets.Count);
 	}
 
-	public void Travel(PlanetButton pButton)
+	public void Travel(Planet planet)
 	{
-		Planet planet = pButton.planet;
 		TravelController.Travel (planet);
 	}
 }

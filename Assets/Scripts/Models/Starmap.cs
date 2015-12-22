@@ -20,7 +20,7 @@ public class Starmap : MonoBehaviour {
 	public GameObject[] resPrefabs = new GameObject[6];
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		Init ();
 	}
 

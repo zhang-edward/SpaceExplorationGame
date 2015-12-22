@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
 public class PlanetButton : MonoBehaviour {
 
@@ -9,13 +8,35 @@ public class PlanetButton : MonoBehaviour {
 	/// </summary>
 	public Planet planet;
 
+	private StarmapUI starmapUI;
+
+	/// <summary>
+	/// The sprite.
+	/// </summary>
 	public Sprite sprite;
 
-	public void Init (Planet planet)
-	{
-		this.planet = planet;
+	/// <summary>
+	/// The Sprite Renderer.
+	/// </summary>
+	private SpriteRenderer sr;
 
-		// TODO: pick sprite based on planet data
-		GetComponent<Image>().sprite = sprite;
+	void Awake()
+	{
+		sr = GetComponent<SpriteRenderer>();
+	}
+
+	public void Init (StarmapUI ui, Planet planet)
+	{
+		this.starmapUI = ui;
+		this.planet = planet;
+		Debug.Log ("Planet Name: " + planet.Name);
+		Debug.Log ("Planet Civ Type: " + planet.GetCivType());
+
+		sr.sprite = sprite;
+	}
+
+	void OnMouseDown()
+	{
+		starmapUI.Travel (planet);
 	}
 }
