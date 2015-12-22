@@ -7,7 +7,7 @@ public class Starmap : MonoBehaviour {
 	/// <summary>
 	/// The planets.
 	/// </summary>
-	private List<Planet> planets;
+	public List<Planet> planets; //TODO: Temp public for testing
 
 	/// <summary>
 	/// The planet prefab.
@@ -21,7 +21,7 @@ public class Starmap : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		Init ();
 	}
 
 	/// <summary>
@@ -33,7 +33,7 @@ public class Starmap : MonoBehaviour {
 
 		//TODO: Generate the planet randomly
 		Planet p = planet.GetComponent<Planet> ();
-		//p.Init ("MVP Tutorial");
+		p.Init ("MVP Tutorial");
 		planets[0] = p;
 	}
 

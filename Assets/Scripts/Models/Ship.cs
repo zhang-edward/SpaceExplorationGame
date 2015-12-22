@@ -33,6 +33,14 @@ public class Ship : MonoBehaviour {
 	/// Initialize this instance
 	/// </summary>
 	void Start() {
+		Init ();
+	}
+
+	/// <summary>
+	/// Init this instance.
+	/// </summary>
+	void Init() {
+		crewList = new List<Crew>();
 		for (int i = 0; i < 2; i++) {
 			GameObject o = Instantiate(crewPrefab, transform.position, Quaternion.identity) as GameObject;
 			Crew newCrew = o.GetComponent<Crew>();

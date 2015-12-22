@@ -64,7 +64,7 @@ public class Planet : MonoBehaviour {
 	/// <param name="name">Name.</param>
 	public void Init(string name) {
 		this.name = name;
-		civType = GenCivType ();
+		this.civType = GenCivType ();
 
 		//TODO: Figure out resources
 	}
@@ -74,7 +74,9 @@ public class Planet : MonoBehaviour {
 	/// </summary>
 	/// <returns>The civ type.</returns>
 	int GenCivType() {
-		return Random.Range (1, 3);
+		int civ = Random.Range (1, 4);
+		Debug.Log ("Civtype=" + civ);
+		return civ;
 	}
 
 	/// <summary>

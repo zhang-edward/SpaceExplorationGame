@@ -17,7 +17,7 @@ public class HarvestController : Action {
 		planet.RemoveResources (res [resnum], 5);
 
 		return member.Name + " got 5 " + res[resnum].GetName() + "!"; */
-		Debug.Log ("Harvest Resources!");
+		Debug.Log (member.Name + " Harvested Resources!");
 		return "";
 	}
 }
