@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour {
 	/// </summary>
 	public void DoActions() {
 		foreach (KeyValuePair<Crew, Action> entry in actionList) {
-			entry.Value.DoAction(entry.Key, ship.planet, ship); 
+			entry.Value.DoAction(entry.Key, ship.GetPlanet(), ship); 
 		}
 	}
 }
