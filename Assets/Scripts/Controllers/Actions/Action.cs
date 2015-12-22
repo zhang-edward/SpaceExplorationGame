@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Action : MonoBehaviour {
+public abstract class Action {
 
 	/// <summary>
 	/// Whether or not this action leads to combat.

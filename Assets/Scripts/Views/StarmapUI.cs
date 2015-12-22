@@ -3,8 +3,10 @@ using System.Collections;
 
 public class StarmapUI : MonoBehaviour {
 
+	TravelController travelControl = new TravelController();
+
 	public void Travel(Planet planet)
 	{
-		GameManager.instance.ship.SetPlanet(planet);
+		TravelController.Travel (planet);
 	}
 }
