@@ -16,8 +16,8 @@ public class TravelController : MonoBehaviour {
 	/// <summary>
 	/// Travel this instance.
 	/// </summary>
-	public static string Travel(Ship ship, Planet dest) {
-		ship.SetPlanet (dest);
+	public static string Travel(Planet dest) {
+		GameManager.instance.ship.SetPlanet (dest);
 		return "Ship travelled to "  + dest.GetName();
 	}
 }

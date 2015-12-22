@@ -14,5 +14,5 @@ public class Crew : MonoBehaviour {
 		get{return strength;}
 	}
 
-	private string Name{get; set;}
+	public string Name{get; set;}
 }

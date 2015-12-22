@@ -24,6 +24,22 @@ public class Ship : MonoBehaviour {
 	/// </summary>
 	private Planet planet;
 
+
+
+	/// <summary>
+	/// Initialize this instance
+	/// </summary>
+	void Start() {
+		for (int i = 0; i < 2; i++) {
+			GameObject gobj = Instantiate(crewPrefab, transform.position, Quaternion.identity) as GameObject;
+			Crew newCrew = gobj.GetComponent<Crew>();
+			newCrew.Name = "Crew " + i;
+			newCrew.Health = 10;
+			newCrew.Strength = 5;
+			crew.Add(newCrew);
+		}
+	}
+
 	/// <summary>
 	/// Adds the resources.
 	/// </summary>
