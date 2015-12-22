@@ -25,6 +25,15 @@ public class ViewManager : MonoBehaviour {
 	// UI display is based on the ship's planet variable, as well as if the player has opened some menu
 	public bool shopping;
 
+	void Awake() {
+		if (instance == null)
+			instance = this;
+		else if (instance != this)
+			Destroy(gameObject);
+		
+		DontDestroyOnLoad(gameObject);
+	}
+
 	void Update()
 	{
 		Planet planet = GameManager.instance.ship.planet;

@@ -60,6 +60,11 @@ public class Planet {
 	/// </summary>
 	/// <param name="name">Name.</param>
 	public void Init(string name) {
+<<<<<<< HEAD
+=======
+		this.name = name;
+		this.civType = GenCivType ();
+>>>>>>> refs/remotes/origin/master
 
 
 
@@ -70,7 +75,9 @@ public class Planet {
 	/// </summary>
 	/// <returns>The civ type.</returns>
 	int GenCivType() {
-		return Random.Range (1, 3);
+		int civ = Random.Range (1, 4);
+		Debug.Log ("Civtype=" + civ);
+		return civ;
 	}
 
 	/// <summary>

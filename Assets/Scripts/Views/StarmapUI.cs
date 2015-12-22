@@ -7,7 +7,7 @@ public class StarmapUI : MonoBehaviour {
 	TravelController travelControl = new TravelController();
 
 	/// <summary>
-	/// The starmap.
+	/// The starmap used to generate views.
 	/// </summary>
 	public Starmap starmap;
 

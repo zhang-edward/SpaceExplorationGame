@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Starmap : MonoBehaviour {
-	
+
 	/// <summary>
 	/// The planets.
 	/// </summary>
-	public List<Planet> planets;
+	public List<Planet> planets; //TODO: Temp public for testing
 
 	/// <summary>
 	/// The planet prefab.
@@ -33,6 +33,7 @@ public class Starmap : MonoBehaviour {
 		//TODO: Generate the planet randomly
 		Planet p = new Planet("MVP tutorial");
 		planets.Add (p);
+
 	}
 
 	// Update is called once per frame

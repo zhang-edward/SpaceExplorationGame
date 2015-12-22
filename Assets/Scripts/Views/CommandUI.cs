@@ -41,7 +41,6 @@ public class CommandUI : MonoBehaviour {
 		GameManager.instance.AssignAction(crewList[crewIndex], actionNum);
 		if (crewIndex < crewList.Count - 1)
 		{
-			//Debug.Log ("crewIndex: " + crewIndex);
 			crewIndex ++;
 			crewText.text = "Crew #" + crewIndex;
 		}
