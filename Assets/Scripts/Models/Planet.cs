@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Planet : MonoBehaviour {
+public class Planet {
 
 	/// <summary>
 	/// The name of the planet.
@@ -49,7 +49,7 @@ public class Planet : MonoBehaviour {
 		get{ return explored;}
 		set{ explored = value;}
 	}
-
+	
 	/// <summary>
 	/// Gets or sets the resource level.
 	/// </summary>
@@ -62,23 +62,13 @@ public class Planet : MonoBehaviour {
 	private static string[] names = new string[6] 
 					{ "Wood", "Stone", "Metal", 
 					"Gas", "Plastic", "Gems"};
-    
-    // Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
 	/// <summary>
-	/// Initialize with the specified name.
+	/// Initializes a new instance of the <see cref="Planet"/> class.
 	/// </summary>
 	/// <param name="name">Name.</param>
-	public void Init(string name) {
-		this.name = name;
+	public Planet(string name) {
+		Name = name;
 		this.civType = GenCivType ();
 		int count = 0;
 		resourceTypes = GenResources (names);
@@ -111,8 +101,7 @@ public class Planet : MonoBehaviour {
 	Resource[] GenResources(string[] resources) {
 		Resource[] defres = new Resource[6];
 		for(int i = 0; i < defres.Length; i++) {
-			GameObject gobj = Instantiate(resPrefabs[i], transform.position, Quaternion.identity) as GameObject;
-			Resource newres = gobj.GetComponent<Resource>();
+			Resource newres = new Resource();
 			newres.Name = resources[i];
 			newres.ShopValue = (i + 1) * 10;
 			defres[i] = newres;
@@ -181,22 +170,6 @@ public class Planet : MonoBehaviour {
 	/// </summary>
 	public void ToggleBase() {
 		hasBase = !hasBase;
-	}
-
-	/// <summary>
-	/// Gets the name.
-	/// </summary>
-	/// <returns>The name.</returns>
-	public string GetName() {
-		return name;
-	}
-
-	/// <summary>
-	/// Sets the name.
-	/// </summary>
-	/// <param name="name">Name.</param>
-	public void SetName(string name) {
-		this.name = name;
 	}
 
 	/// <summary>

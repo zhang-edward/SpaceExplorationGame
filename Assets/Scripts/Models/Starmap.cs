@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Starmap : MonoBehaviour {
-	
+
 	/// <summary>
 	/// The planets.
 	/// </summary>
@@ -20,8 +20,8 @@ public class Starmap : MonoBehaviour {
 	public GameObject[] resPrefabs = new GameObject[6];
 
 	// Use this for initialization
-	void Start () {
-		//Init ();
+	void Awake () {
+		Init ();
 	}
 
 	/// <summary>
@@ -29,12 +29,12 @@ public class Starmap : MonoBehaviour {
 	/// </summary>
 	public void Init() {
 		planets = new List<Planet> ();
-		GameObject planet = Instantiate (planetPrefab, transform.position, Quaternion.identity) as GameObject; 
 
 		//TODO: Generate the planet randomly
-		Planet p = planet.GetComponent<Planet> ();
-		p.Init ("MVP Tutorial");
-		planets.Add(p);
+		Planet p = new Planet("MVP tutorial");
+		Planet p2 = new Planet("Planet A");
+		planets.Add (p);
+		planets.Add (p2);
 	}
 
 	// Update is called once per frame
