@@ -29,8 +29,8 @@ public class PlanetButton : MonoBehaviour {
 	{
 		this.starmapUI = ui;
 		this.planet = planet;
-		Debug.Log ("Planet Name: " + planet.Name);
-		Debug.Log ("Planet Civ Type: " + planet.GetCivType());
+		//Debug.Log ("Planet Name: " + planet.Name);
+		//Debug.Log ("Planet Civ Type: " + planet.GetCivType());
 
 		sr.sprite = sprite;
 	}

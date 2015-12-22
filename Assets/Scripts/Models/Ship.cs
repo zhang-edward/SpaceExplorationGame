@@ -7,7 +7,7 @@ public class Ship : MonoBehaviour {
 	/// <summary>
 	/// The crew.
 	/// </summary>
-	public List<Crew> crewList { get; set; }
+	public List<Crew> crewList;
 
 	/// <summary>
 	/// The money.

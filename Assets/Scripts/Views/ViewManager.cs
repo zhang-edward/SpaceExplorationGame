@@ -11,15 +11,15 @@ public class ViewManager : MonoBehaviour {
 	/// <summary>
 	/// The starmap UI.
 	/// </summary>
-	public GameObject StarmapUI;
+	public StarmapUI StarmapUI;
 
 	/// <summary>
 	/// The planet UI.
 	/// </summary>
-	public GameObject PlanetUI;
+	public CommandUI CommandUI;
 
 	// UI Overlay
-	public GameObject ShopUI;
+	public ShopUI ShopUI;
 
 	// TODO: find a better way get which UI to display
 	// UI display is based on the ship's planet variable, as well as if the player has opened some menu
@@ -41,22 +41,23 @@ public class ViewManager : MonoBehaviour {
 		// TODO: set UIs to id # to make switching easier
 		if (planet == null)
 		{
-			StarmapUI.SetActive (true);
-			PlanetUI.SetActive (false);
+			StarmapUI.gameObject.SetActive (true);
+			CommandUI.gameObject.SetActive (false);
 		}
 		else
 		{
-			StarmapUI.SetActive (false);
-			PlanetUI.SetActive (true);
+			StarmapUI.gameObject.SetActive (false);
+			CommandUI.gameObject.SetActive (true);
+			CommandUI.Init(planet);
 		}
 
 		if (shopping)
 		{
-			ShopUI.SetActive (true);
+			ShopUI.gameObject.SetActive (true);
 		}
 		else
 		{
-			ShopUI.SetActive (false);
+			ShopUI.gameObject.SetActive (false);
 		}
 	}
 }

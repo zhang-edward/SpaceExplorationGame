@@ -36,6 +36,7 @@ public class StarmapUI : MonoBehaviour {
 		{
 			GameObject o = Instantiate(planetButtonPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 			o.transform.SetParent (this.transform);		// for organization in the hierarchy
+			o.transform.localPosition = new Vector3(Random.Range (-3, 4), Random.Range (-4, 5));
 
 			// TODO: make a parent class of Starmap Button for other objects like asteroids, space stations, etc.
 			PlanetButton pButton = o.GetComponent<PlanetButton>();

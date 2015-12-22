@@ -5,10 +5,15 @@ using System.Collections.Generic;
 
 public class CommandUI : MonoBehaviour {
 
-	private Ship ship;
+	/// <summary>
+	/// The planet that this ui is representing.
+	/// </summary>
+	private Planet planet;
 
-	public Text crewText;
-	public Text planetInfo;
+	/// <summary>
+	/// The player ship.
+	/// </summary>
+	private Ship ship;
 
 	/// <summary>
 	/// The crew that this UI is currently assigning actions to
@@ -20,6 +25,12 @@ public class CommandUI : MonoBehaviour {
 	/// </summary>
 	private int crewIndex = 0;
 
+	
+	// UI stuff
+	public Text crewText;
+	public Text planetInfo;
+
+
 	// Use this for initialization
 	void Awake ()
 	{
@@ -29,6 +40,10 @@ public class CommandUI : MonoBehaviour {
 
 	public void Init(Planet planet)
 	{
+		this.planet = planet;
+		string civType = "Civilization Type: " + planet.GetCivType();
+		planetInfo.text = planet.Name + "\n" + civType;
+
 	}
 
 	/// <summary>
@@ -50,5 +65,10 @@ public class CommandUI : MonoBehaviour {
 			GameManager.instance.DoActions();
 			crewIndex = 0;
 		}
+	}
+
+	public void GoToStarmap()
+	{
+		ship.planet = null;
 	}
 }

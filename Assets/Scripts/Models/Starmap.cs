@@ -32,8 +32,9 @@ public class Starmap : MonoBehaviour {
 
 		//TODO: Generate the planet randomly
 		Planet p = new Planet("MVP tutorial");
+		Planet p2 = new Planet("Planet A");
 		planets.Add (p);
-
+		planets.Add (p2);
 	}
 
 	// Update is called once per frame
