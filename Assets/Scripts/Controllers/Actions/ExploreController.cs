@@ -31,6 +31,7 @@ public class ExploreController : Action {
 			planet.AddResources (resources [planet.ResourceLevel], 100);
 			return "Discovered " + resources[planet.ResourceLevel].Name; 
 		} else {
+			planet.ResourceLevel = 6;
 			int randres = Random.Range(0, 6);
 			planet.AddResources(resources[randres], 100);
 			return "Discovered more " + resources[randres].Name;
