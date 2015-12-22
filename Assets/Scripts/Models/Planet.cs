@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Planet : MonoBehaviour {
+public class Planet {
 
 	/// <summary>
 	/// The name of the planet.
 	/// </summary>
-	private string Name{get; set;}
+	public string Name{get; set;}
 
 	/// <summary>
 	/// The resources of this planet.
@@ -47,27 +47,23 @@ public class Planet : MonoBehaviour {
 
 	private static string[] names = new string[6] {"Wood", "Stone", "Metal", "Gas",
 		"Plastic", "Gems"};
-    
-    // Use this for initialization
-	void Start () {
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public Planet(string name)
+	{
+		//TODO: Figure out resources
+		this.Name = name;
+		civType = GenCivType ();
 	}
 
-	/// <summary>
+/*	/// <summary>
 	/// Initialize with the specified name.
 	/// </summary>
 	/// <param name="name">Name.</param>
 	public void Init(string name) {
-		this.name = name;
-		civType = GenCivType ();
 
-		//TODO: Figure out resources
-	}
+
+
+	}*/
 
 	/// <summary>
 	/// Generate the type of civ
@@ -159,22 +155,6 @@ public class Planet : MonoBehaviour {
 	/// </summary>
 	public void ToggleBase() {
 		hasBase = !hasBase;
-	}
-
-	/// <summary>
-	/// Gets the name.
-	/// </summary>
-	/// <returns>The name.</returns>
-	public string GetName() {
-		return name;
-	}
-
-	/// <summary>
-	/// Sets the name.
-	/// </summary>
-	/// <param name="name">Name.</param>
-	public void SetName(string name) {
-		this.name = name;
 	}
 
 	/// <summary>

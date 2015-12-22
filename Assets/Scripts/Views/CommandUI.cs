@@ -3,11 +3,12 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlanetUI : MonoBehaviour {
+public class CommandUI : MonoBehaviour {
 
 	private Ship ship;
 
-	public Text debugText;
+	public Text crewText;
+	public Text planetInfo;
 
 	/// <summary>
 	/// The crew that this UI is currently assigning actions to
@@ -26,6 +27,9 @@ public class PlanetUI : MonoBehaviour {
 		crewList = ship.crewList;
 	}
 
+	public void Init(Planet planet)
+	{
+	}
 
 	/// <summary>
 	/// Assigns the crew.
@@ -35,13 +39,15 @@ public class PlanetUI : MonoBehaviour {
 	public void PickActions(int actionNum)
 	{
 		GameManager.instance.AssignAction(crewList[crewIndex], actionNum);
-		if (crewIndex < crewList.Count)
+		if (crewIndex < crewList.Count - 1)
 		{
-			debugText.text = "Crew #" + crewIndex;
+			//Debug.Log ("crewIndex: " + crewIndex);
 			crewIndex ++;
+			crewText.text = "Crew #" + crewIndex;
 		}
 		else
 		{
+			crewText.text = "Doing Actions!";
 			GameManager.instance.DoActions();
 			crewIndex = 0;
 		}

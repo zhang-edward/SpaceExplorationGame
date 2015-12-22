@@ -29,10 +29,20 @@ public class Ship : MonoBehaviour {
 	/// </summary>
 	public GameObject crewPrefab;
 
+	void Awake()
+	{
+		crewList = new List<Crew>();
+	}
+
 	/// <summary>
 	/// Initialize this instance
 	/// </summary>
 	void Start() {
+		Init();
+	}
+
+	void Init ()
+	{
 		for (int i = 0; i < 2; i++) {
 			GameObject o = Instantiate(crewPrefab, transform.position, Quaternion.identity) as GameObject;
 			Crew newCrew = o.GetComponent<Crew>();

@@ -47,11 +47,11 @@ public class GameManager : MonoBehaviour {
 
 		if (actionNum == 0)
 		{
-			actionList[crew] = new HarvestController();
+			actionList[crew] = new ExploreController();
 		}
 		else if (actionNum == 1)
 		{
-			actionList[crew] = new ExploreController();
+			actionList[crew] = new HarvestController();
 		}
 
 		/*if (travel) {
