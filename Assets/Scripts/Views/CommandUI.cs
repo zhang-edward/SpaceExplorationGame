@@ -35,7 +35,6 @@ public class CommandUI : MonoBehaviour {
 	void Awake ()
 	{
 		ship = GameManager.instance.ship;
-		crewList = ship.crewList;
 	}
 
 	public void Init(Planet planet)
@@ -43,6 +42,7 @@ public class CommandUI : MonoBehaviour {
 		this.planet = planet;
 		string civType = "Civilization Type: " + planet.GetCivType();
 		planetInfo.text = planet.Name + "\n" + civType;
+		crewList = ship.crewList;
 
 	}
 
