@@ -34,6 +34,7 @@ public class Ship : MonoBehaviour {
 	/// </summary>
 	void Start() {
 		for (int i = 0; i < 2; i++) {
+			crewList = new List<Crew>();
 			GameObject o = Instantiate(crewPrefab, transform.position, Quaternion.identity) as GameObject;
 			Crew newCrew = o.GetComponent<Crew>();
 			newCrew.Name = "Crew " + i;
