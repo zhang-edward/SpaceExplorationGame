@@ -3,11 +3,17 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlanetUI : MonoBehaviour {
+public class CommandUI : MonoBehaviour {
 
+	/// <summary>
+	/// The planet that this ui is representing.
+	/// </summary>
+	private Planet planet;
+
+	/// <summary>
+	/// The player ship.
+	/// </summary>
 	private Ship ship;
-
-	public Text debugText;
 
 	/// <summary>
 	/// The crew that this UI is currently assigning actions to
@@ -19,6 +25,12 @@ public class PlanetUI : MonoBehaviour {
 	/// </summary>
 	private int crewIndex = 0;
 
+	
+	// UI stuff
+	public Text crewText;
+	public Text planetInfo;
+
+
 	// Use this for initialization
 	void Awake ()
 	{
@@ -26,6 +38,13 @@ public class PlanetUI : MonoBehaviour {
 		crewList = ship.crewList;
 	}
 
+	public void Init(Planet planet)
+	{
+		this.planet = planet;
+		string civType = "Civilization Type: " + planet.GetCivType();
+		planetInfo.text = planet.Name + "\n" + civType;
+
+	}
 
 	/// <summary>
 	/// Assigns the crew.
@@ -37,13 +56,19 @@ public class PlanetUI : MonoBehaviour {
 		GameManager.instance.AssignAction(crewList[crewIndex], actionNum);
 		if (crewIndex < crewList.Count - 1)
 		{
-			debugText.text = "Crew #" + crewIndex;
 			crewIndex ++;
+			crewText.text = "Crew #" + crewIndex;
 		}
 		else
 		{
+			crewText.text = "Doing Actions!";
 			GameManager.instance.DoActions();
 			crewIndex = 0;
 		}
+	}
+
+	public void GoToStarmap()
+	{
+		ship.planet = null;
 	}
 }
