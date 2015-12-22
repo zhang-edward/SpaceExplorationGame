@@ -24,7 +24,10 @@ public class Ship : MonoBehaviour {
 	/// </summary>
 	private Planet planet;
 
-
+	/// <summary>
+	/// The crew prefab.
+	/// </summary>
+	private GameObject crewPrefab;
 
 	/// <summary>
 	/// Initialize this instance
