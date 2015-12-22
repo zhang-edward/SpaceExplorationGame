@@ -7,7 +7,7 @@ public class Planet : MonoBehaviour {
 	/// <summary>
 	/// The name of the planet.
 	/// </summary>
-	private string Name{get; set;}
+	public string Name{get; set;}
 
 	/// <summary>
 	/// The resources of this planet.
@@ -20,6 +20,11 @@ public class Planet : MonoBehaviour {
 	private Resource[] resourceTypes;
 
 	/// <summary>
+	/// The resource prefabs.
+	/// </summary>
+	public GameObject[] resPrefabs = new GameObject[6];
+
+	/// <summary>
 	/// The types of aliens.
 	/// </summary>
 	private Alien[] alienTypes;
@@ -27,7 +32,7 @@ public class Planet : MonoBehaviour {
 	/// <summary>
 	/// The type of civilization on this planet
 	/// </summary>
-	private int civType;
+	public int civType;
 
 	/// <summary>
 	/// True if a base has been established.
@@ -45,8 +50,18 @@ public class Planet : MonoBehaviour {
 		set{ explored = value;}
 	}
 
-	private static string[] names = new string[6] {"Wood", "Stone", "Metal", "Gas",
-		"Plastic", "Gems"};
+	/// <summary>
+	/// Gets or sets the resource level.
+	/// </summary>
+	/// <value>The resource level.</value>
+	public int ResourceLevel { get; set; }
+
+	/// <summary>
+	/// The names of all resources.
+	/// </summary>
+	private static string[] names = new string[6] 
+					{ "Wood", "Stone", "Metal", 
+					"Gas", "Plastic", "Gems"};
     
     // Use this for initialization
 	void Start () {
@@ -65,8 +80,18 @@ public class Planet : MonoBehaviour {
 	public void Init(string name) {
 		this.name = name;
 		this.civType = GenCivType ();
-
-		//TODO: Figure out resources
+		int count = 0;
+		resourceTypes = GenResources (names);
+		resources = new Dictionary<Resource, int> ();
+		foreach (Resource res in resourceTypes) {
+			if(count > 2) {
+				resources.Add(res, 0);
+			} else {
+				resources.Add(res, 100);
+			}
+			count++;
+		}
+		ResourceLevel = 2; 
 	}
 
 	/// <summary>
@@ -75,7 +100,7 @@ public class Planet : MonoBehaviour {
 	/// <returns>The civ type.</returns>
 	int GenCivType() {
 		int civ = Random.Range (1, 4);
-		Debug.Log ("Civtype=" + civ);
+		Debug.Log ("Civtype =" + civ);
 		return civ;
 	}
 
@@ -83,10 +108,14 @@ public class Planet : MonoBehaviour {
 	/// Gens the resources.
 	/// </summary>
 	/// <returns>The resources.</returns>
-	Resource[] GenResources(Resource[] resources) {
-		Resource[] defres = new Resource[3];
+	Resource[] GenResources(string[] resources) {
+		Resource[] defres = new Resource[6];
 		for(int i = 0; i < defres.Length; i++) {
-			defres[i] = resources[i];
+			GameObject gobj = Instantiate(resPrefabs[i], transform.position, Quaternion.identity) as GameObject;
+			Resource newres = gobj.GetComponent<Resource>();
+			newres.Name = resources[i];
+			newres.ShopValue = (i + 1) * 10;
+			defres[i] = newres;
 		}
 		return defres;
 	}
@@ -121,15 +150,6 @@ public class Planet : MonoBehaviour {
 	/// <returns>The resource.</returns>
 	public void SetResourceTypes(Resource[] resourceTypes) {
 		this.resourceTypes = resourceTypes;
-	}
-
-	/// <summary>
-	/// Discovers a new resource.
-	/// </summary>
-	public void DiscoverResource() {
-		if (explored > 10) {
-			
-		}
 	}
 
 	/// <summary>
@@ -186,5 +206,9 @@ public class Planet : MonoBehaviour {
 	/// <param name="num">Number.</param>
 	public void RemoveResources(Resource res, int num) {
 		resources [res] -= num;
+	}
+
+	public void AddResources(Resource res, int num) {
+		resources [res] += num;
 	}
 }

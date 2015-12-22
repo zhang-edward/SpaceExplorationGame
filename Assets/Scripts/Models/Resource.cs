@@ -6,12 +6,12 @@ public class Resource : MonoBehaviour {
 	/// <summary>
 	/// The shop value.
 	/// </summary>
-	private int shopValue;
+	public int ShopValue { get; set; }
 
 	/// <summary>
 	/// The name.
 	/// </summary>
-	private string Name{get; set;}
+	public string Name{get; set;}
 
 	// Use this for initialization
 	void Start () {
@@ -21,36 +21,5 @@ public class Resource : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-	}
-
-	/// <summary>
-	/// Sets the shop value.
-	/// </summary>
-	public void SetShopValue(int shopValue) {
-		this.shopValue = shopValue;
-	}
-
-	/// <summary>
-	/// Gets the shop value.
-	/// </summary>
-	/// <returns>The shop value.</returns>
-	public int GetShopValue() {
-		return shopValue;
-	}
-
-	/// <summary>
-	/// Sets the name.
-	/// </summary>
-	/// <param name="name">Name.</param>
-	public void SetName(string name) {
-		this.name = name;
-	}
-
-	/// <summary>
-	/// Gets the name.
-	/// </summary>
-	/// <returns>The name.</returns>
-	public string GetName() {
-		return name;
 	}
 }

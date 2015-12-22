@@ -21,7 +21,7 @@ public class Starmap : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Init ();
+		//Init ();
 	}
 
 	/// <summary>
@@ -34,7 +34,7 @@ public class Starmap : MonoBehaviour {
 		//TODO: Generate the planet randomly
 		Planet p = planet.GetComponent<Planet> ();
 		p.Init ("MVP Tutorial");
-		planets[0] = p;
+		planets.Add(p);
 	}
 
 	// Update is called once per frame
