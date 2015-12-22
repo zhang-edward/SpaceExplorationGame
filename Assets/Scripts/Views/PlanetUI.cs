@@ -37,8 +37,8 @@ public class PlanetUI : MonoBehaviour {
 		GameManager.instance.AssignAction(crewList[crewIndex], actionNum);
 		if (crewIndex < crewList.Count - 1)
 		{
-			debugText.text = "Crew #" + crewIndex;
 			crewIndex ++;
+			debugText.text = "Crew #" + crewIndex;
 		}
 		else
 		{

@@ -5,12 +5,19 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance;
+
+	/// <summary>
+	/// Indicates whether or not we travel.
+	/// </summary>
 	private bool travel = false;
 	public bool Travel {
 		get{ return travel;}
 		set{ travel = value;}
 	}
 
+	/// <summary>
+	/// The starmap.
+	/// </summary>
 	public Starmap starmap;
 
 	/// <summary>
@@ -53,25 +60,6 @@ public class GameManager : MonoBehaviour {
 		{
 			actionList[crew] = new ExploreController();
 		}
-
-		/*if (travel) {
-			Planet dest = null; //FIXME
-			TravelController.Travel (ship, dest);
-		} else {
-			foreach (Crew member in ship.GetCrew()){
-				string actionName = null; // FIXME 
-				switch(actionName) {
-					case "harvest": 
-						actionList[member] = new HarvestController();
-						break;
-					case "explore":
-						actionList[member] = new ExploreController();
-						break;
-					default:
-						break;
-				}
-			}
-		}*/
 	}
 
 	/// <summary>
