@@ -3,16 +3,6 @@ using System.Collections;
 
 public class ExploreController : Action {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 	/// <summary>
 	/// Does the action to the crew.
 	/// </summary>

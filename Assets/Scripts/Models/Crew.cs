@@ -3,16 +3,10 @@ using System.Collections;
 
 public class Crew : MonoBehaviour {
 
-	private int health;
-	public int Health {
-		get{return health;}
-		set{health = value;}
-	}
+	public int health { get; set; }
+	public int strength { get; set; }
 
-	private int strength;
-	public int Strength {
-		get{return strength;}
-	}
+	public Sprite sprite;
 
 	private string Name{get; set;}
 }
