@@ -8,5 +8,5 @@ public class Crew : MonoBehaviour {
 
 	public Sprite sprite;
 
-	private string Name{get; set;}
+	public string Name{get; set;}
 }
