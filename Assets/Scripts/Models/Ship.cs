@@ -37,8 +37,8 @@ public class Ship : MonoBehaviour {
 			GameObject gobj = Instantiate(crewPrefab, transform.position, Quaternion.identity) as GameObject;
 			Crew newCrew = gobj.GetComponent<Crew>();
 			newCrew.Name = "Crew " + i;
-			newCrew.Health = 10;
-			newCrew.Strength = 5;
+			newCrew.health = 10;
+			newCrew.strength = 5;
 			crew.Add(newCrew);
 		}
 	}
