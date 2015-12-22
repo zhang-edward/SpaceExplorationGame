@@ -20,6 +20,11 @@ public class Planet {
 	private Resource[] resourceTypes;
 
 	/// <summary>
+	/// The resource prefabs.
+	/// </summary>
+	public GameObject[] resPrefabs = new GameObject[6];
+
+	/// <summary>
 	/// The types of aliens.
 	/// </summary>
 	private Alien[] alienTypes;
@@ -27,7 +32,7 @@ public class Planet {
 	/// <summary>
 	/// The type of civilization on this planet
 	/// </summary>
-	private int civType;
+	public int civType;
 
 	/// <summary>
 	/// True if a base has been established.
@@ -44,19 +49,39 @@ public class Planet {
 		get{ return explored;}
 		set{ explored = value;}
 	}
+	
+	/// <summary>
+	/// Gets or sets the resource level.
+	/// </summary>
+	/// <value>The resource level.</value>
+	public int ResourceLevel { get; set; }
 
-	private static string[] names = new string[6] {"Wood", "Stone", "Metal", "Gas",
-		"Plastic", "Gems"};
+	/// <summary>
+	/// The names of all resources.
+	/// </summary>
+	private static string[] names = new string[6] 
+					{ "Wood", "Stone", "Metal", 
+					"Gas", "Plastic", "Gems"};
 
 	/// <summary>
 	/// Initializes a new instance of the <see cref="Planet"/> class.
 	/// </summary>
 	/// <param name="name">Name.</param>
-	public Planet(string name)
-	{
-		//TODO: Figure out resources
-		this.Name = name;
-		civType = GenCivType ();
+	public Planet(string name) {
+		Name = name;
+		this.civType = GenCivType ();
+		int count = 0;
+		resourceTypes = GenResources (names);
+		resources = new Dictionary<Resource, int> ();
+		foreach (Resource res in resourceTypes) {
+			if(count > 2) {
+				resources.Add(res, 0);
+			} else {
+				resources.Add(res, 100);
+			}
+			count++;
+		}
+		ResourceLevel = 2; 
 	}
 
 	/// <summary>
@@ -65,6 +90,7 @@ public class Planet {
 	/// <returns>The civ type.</returns>
 	int GenCivType() {
 		int civ = Random.Range (1, 4);
+		Debug.Log ("Civtype =" + civ);
 		return civ;
 	}
 
@@ -72,10 +98,13 @@ public class Planet {
 	/// Gens the resources.
 	/// </summary>
 	/// <returns>The resources.</returns>
-	Resource[] GenResources(Resource[] resources) {
-		Resource[] defres = new Resource[3];
+	Resource[] GenResources(string[] resources) {
+		Resource[] defres = new Resource[6];
 		for(int i = 0; i < defres.Length; i++) {
-			defres[i] = resources[i];
+			Resource newres = new Resource();
+			newres.Name = resources[i];
+			newres.ShopValue = (i + 1) * 10;
+			defres[i] = newres;
 		}
 		return defres;
 	}
@@ -110,15 +139,6 @@ public class Planet {
 	/// <returns>The resource.</returns>
 	public void SetResourceTypes(Resource[] resourceTypes) {
 		this.resourceTypes = resourceTypes;
-	}
-
-	/// <summary>
-	/// Discovers a new resource.
-	/// </summary>
-	public void DiscoverResource() {
-		if (explored > 10) {
-			
-		}
 	}
 
 	/// <summary>
@@ -159,5 +179,9 @@ public class Planet {
 	/// <param name="num">Number.</param>
 	public void RemoveResources(Resource res, int num) {
 		resources [res] -= num;
+	}
+
+	public void AddResources(Resource res, int num) {
+		resources [res] += num;
 	}
 }

@@ -45,6 +45,7 @@ public class Ship : MonoBehaviour {
 	/// Init this instance.
 	/// </summary>
 	void Init() {
+		resources = new Dictionary<Resource, int> ();
 		crewList = new List<Crew>();
 		for (int i = 0; i < 2; i++) {
 			GameObject o = Instantiate(crewPrefab, transform.position, Quaternion.identity) as GameObject;
@@ -62,7 +63,11 @@ public class Ship : MonoBehaviour {
 	/// <param name="res">Res.</param>
 	/// <param name="num">Number.</param>
 	public void AddResources(Resource res, int num) {
-		resources [res] += num;
+		if (resources.ContainsKey (res)) {
+			resources [res] += num;
+		} else {
+			resources.Add(res, num);
+		}
 	}
 
 	/// <summary>

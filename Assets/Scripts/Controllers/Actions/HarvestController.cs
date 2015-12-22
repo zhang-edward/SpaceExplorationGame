@@ -9,15 +9,14 @@ public class HarvestController : Action {
 	/// <param name="crew">Crew.</param>
 	/// <param name="member">Member.</param>
 	public override string DoAction(Crew member, Planet planet, Ship ship) {
-	/*	Resource[] res = planet.GetResourceTypes ();
-		int resnum = Random.Range (0, res.Length - 1);
+		Resource[] res = planet.GetResourceTypes ();
+		int resnum = Random.Range (0, planet.ResourceLevel);
 
 		//TODO: Randomly Generate resource amounts
 		ship.AddResources (res [resnum], 5);
 		planet.RemoveResources (res [resnum], 5);
 
-		return member.Name + " got 5 " + res[resnum].GetName() + "!"; */
-		Debug.Log (member.Name + " Harvested Resources!");
-		return "";
+		Debug.Log (member.Name + " got 5 " + res[resnum].Name + "!");
+		return member.Name + " got 5 " + res[resnum].Name + "!"; 
 	}
 }
