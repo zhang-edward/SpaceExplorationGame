@@ -10,7 +10,12 @@ public class HarvestController : Action {
 	/// <param name="member">Member.</param>
 	public override string DoAction(Crew member, Planet planet, Ship ship) {
 		Resource[] res = planet.GetResourceTypes ();
-		int resnum = Random.Range (0, planet.ResourceLevel);
+		int resnum = 0;
+		if (planet.ResourceLevel == 6) {
+			resnum = Random.Range (0, 6);
+		} else {
+			resnum = Random.Range (0, planet.ResourceLevel + 1);
+		}
 
 		//TODO: Randomly Generate resource amounts
 		ship.AddResources (res [resnum], 5);
