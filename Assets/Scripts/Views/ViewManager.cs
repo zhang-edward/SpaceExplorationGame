@@ -72,4 +72,9 @@ public class ViewManager : MonoBehaviour {
 			ShipUI.gameObject.SetActive(true);
 		}
 	}
+
+	public void setShopping(bool b)
+	{
+		shopping = b;
+	}
 }
