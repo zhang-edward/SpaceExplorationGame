@@ -21,9 +21,16 @@ public class ViewManager : MonoBehaviour {
 	// UI Overlay
 	public ShopUI ShopUI;
 
+	/// <summary>
+	/// The ship UI.
+	/// </summary>
+	public ShipUI ShipUI;
+
 	// TODO: find a better way get which UI to display
 	// UI display is based on the ship's planet variable, as well as if the player has opened some menu
 	public bool shopping;
+
+	public bool ship;
 
 	void Awake() {
 		if (instance == null)
@@ -58,6 +65,11 @@ public class ViewManager : MonoBehaviour {
 		else
 		{
 			ShopUI.gameObject.SetActive (false);
+		}
+		if (ship) {
+			ShipUI.gameObject.SetActive (true);
+		} else {
+			ShipUI.gameObject.SetActive(false);
 		}
 	}
 }
