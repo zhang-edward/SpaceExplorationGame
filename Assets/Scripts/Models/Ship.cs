@@ -106,4 +106,5 @@ public class Ship : MonoBehaviour {
 		Debug.Log (resources);
 		return resources;
 	}
+	
 }

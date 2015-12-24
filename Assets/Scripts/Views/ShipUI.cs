@@ -1,34 +1,32 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class ShipUI : MonoBehaviour {
-	
 	/// <summary>
 	/// The ship that this ui refers to
 	/// </summary>
 	public Ship ship; 
-	
 	/// <summary>
 	/// UI Listing all resources.
 	/// </summary>
 	public Text resources;
-	
 	/// <summary>
 	/// UI Listing the amount of money.
 	/// </summary>
 	public Text money;
-	
+
 	/// <summary>
 	/// UI Listing the crew
 	/// </summary>
 	public Text crew;
 	
+
 	// Use this for initialization
 	void Start () {
 	}
-	
+
 	/// <summary>
 	/// Initialize this instance.
 	/// </summary>
@@ -38,7 +36,6 @@ public class ShipUI : MonoBehaviour {
 		setMoney ();
 		setCrew ();
 	}
-	
 	/// <summary>
 	/// Sets the resource UI.
 	/// </summary>
@@ -49,7 +46,6 @@ public class ShipUI : MonoBehaviour {
 			resources.text += entry.Key.Name + ": " + entry.Value + "\n\n";
 		}
 	}
-	
 	/// <summary>
 	/// Sets the money UI.
 	/// </summary>
@@ -57,7 +53,7 @@ public class ShipUI : MonoBehaviour {
 		money.text = "MONEY: ";
 		money.text += ship.Money.ToString ();
 	}
-	
+
 	/// <summary>
 	/// Sets the crew UI.
 	/// </summary>
