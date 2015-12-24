@@ -3,13 +3,15 @@ using System.Collections;
 
 public class ShopUI : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	public Shop shop;
+
+	void Start()
+	{
+		shop = new Shop(GameManager.instance.ship);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void SellAll()
+	{
+		shop.SellAll ();
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Alien : MonoBehaviour {
+public class Alien {
 
 	/// <summary>
 	/// health of the alien.
@@ -12,14 +12,4 @@ public class Alien : MonoBehaviour {
 	/// The strength of the alien.
 	/// </summary>
 	public int Strength { get; set; }
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
