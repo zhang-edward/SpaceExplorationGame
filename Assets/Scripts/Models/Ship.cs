@@ -12,7 +12,7 @@ public class Ship : MonoBehaviour {
 	/// <summary>
 	/// The money.
 	/// </summary>
-	private float money;
+	public float Money { get; set; }
 
 	/// <summary>
 	/// The resources.
@@ -89,11 +89,24 @@ public class Ship : MonoBehaviour {
 	/// </summary>
 	/// <param name="amt">Amt.</param>
 	public void AddMoney(int amt) {
+<<<<<<< HEAD
 		money += amt;
 		Debug.Log ("Ship now has " + money + " money");
 	}
 
 	public void RemoveMoney(int amt) {
 		money -= amt;
+=======
+		Money += amt;
+	}
+
+	/// <summary>
+	/// Gets the resources.
+	/// </summary>
+	/// <returns>The resources.</returns>
+	public Dictionary<Resource, int> getResources() {
+		Debug.Log (resources);
+		return resources;
+>>>>>>> 8666004... Added ship ui stuff
 	}
 }
