@@ -106,4 +106,8 @@ public class Ship : MonoBehaviour {
 		Debug.Log (resources);
 		return resources;
 	}
+
+	public void RemoveMoney(int amt) {
+		Money -= amt;
+	}
 }
