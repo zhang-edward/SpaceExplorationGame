@@ -23,6 +23,8 @@ public class StarmapUI : MonoBehaviour {
 
 	void Start()
 	{
+		starmap = new Starmap();
+		starmap.Init ();
 		Init ();
 	}
 

@@ -60,4 +60,9 @@ public class ViewManager : MonoBehaviour {
 			ShopUI.gameObject.SetActive (false);
 		}
 	}
+
+	public void setShopping(bool b)
+	{
+		shopping = b;
+	}
 }

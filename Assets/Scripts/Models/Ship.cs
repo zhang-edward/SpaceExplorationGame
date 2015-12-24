@@ -18,6 +18,9 @@ public class Ship : MonoBehaviour {
 	/// The resources.
 	/// </summary>
 	private Dictionary<Resource, int> resources;
+	public Dictionary<Resource, int> Resources {
+		get{return resources;}
+	}
 
 	/// <summary>
 	/// The planet.
@@ -60,13 +63,24 @@ public class Ship : MonoBehaviour {
 	/// <summary>
 	/// Adds the resources.
 	/// </summary>
-	/// <param name="res">Res.</param>
+	/// <param name="res">Resource.</param>
 	/// <param name="num">Number.</param>
 	public void AddResources(Resource res, int num) {
 		if (resources.ContainsKey (res)) {
 			resources [res] += num;
 		} else {
 			resources.Add(res, num);
+		}
+		Debug.Log ("Ship has " + resources[res] + " resources");
+	}
+
+	public void RemoveResources(Resource res, int amt) {
+		if (resources.ContainsKey(res))
+		{
+			if (resources[res] >= amt)
+				resources[res] -= amt;
+			else
+				Debug.LogWarning ("Trying to take away " + amt + " resources when only " + resources[res] + " are available!");
 		}
 	}
 
@@ -76,5 +90,10 @@ public class Ship : MonoBehaviour {
 	/// <param name="amt">Amt.</param>
 	public void AddMoney(int amt) {
 		money += amt;
+		Debug.Log ("Ship now has " + money + " money");
+	}
+
+	public void RemoveMoney(int amt) {
+		money -= amt;
 	}
 }
