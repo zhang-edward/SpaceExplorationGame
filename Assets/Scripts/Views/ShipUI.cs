@@ -32,8 +32,8 @@ public class ShipUI : MonoBehaviour {
 	/// <summary>
 	/// Initialize this instance.
 	/// </summary>
-	void Init() {
-		this.ship = GameManager.instance.ship;
+	public void Init(Ship ship) {
+		this.ship = ship;
 		setResources ();
 		setMoney ();
 		setCrew ();
@@ -44,9 +44,9 @@ public class ShipUI : MonoBehaviour {
 	/// </summary>
 	void setResources() {
 		Dictionary<Resource, int> res = ship.getResources ();
-		Debug.Log (res);
+		resources.text = "RESOURCES" + "\n";
 		foreach (KeyValuePair<Resource, int> entry in res) {
-			resources.text = entry.Key.Name + ": " + entry.Value + "\n\n";
+			resources.text += entry.Key.Name + ": " + entry.Value + "\n\n";
 		}
 	}
 
@@ -54,22 +54,26 @@ public class ShipUI : MonoBehaviour {
 	/// Sets the money UI.
 	/// </summary>
 	void setMoney() {
-		money.text = ship.Money.ToString ();
+		money.text = "MONEY: ";
+		money.text += ship.Money.ToString ();
 	}
 
 	/// <summary>
 	/// Sets the crew UI.
 	/// </summary>
 	void setCrew() {
+		crew.text += "CREW" + "\n";
 		List<Crew> crews = ship.crewList;
 		foreach (Crew member in crews) {
-			crew.text = member.Name + "\n Health: " + member.health 
-						+ "\n Strength: " + member.strength;
+			crew.text = member.Name + "\nHealth: " + member.health 
+						+ "\nStrength: " + member.strength + "\n";
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		setResources ();
+		setMoney ();
+		setCrew ();
 	}
 }

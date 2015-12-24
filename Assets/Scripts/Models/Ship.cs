@@ -55,6 +55,7 @@ public class Ship : MonoBehaviour {
 			newCrew.strength = 5;
 			crewList.Add(newCrew);
 		}
+		ViewManager.instance.ShipUI.Init (this);
 	}
 
 	/// <summary>

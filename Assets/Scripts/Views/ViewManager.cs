@@ -69,7 +69,7 @@ public class ViewManager : MonoBehaviour {
 		if (ship) {
 			ShipUI.gameObject.SetActive (true);
 		} else {
-			ShipUI.gameObject.SetActive(false);
+			ShipUI.gameObject.SetActive(true);
 		}
 	}
 }
