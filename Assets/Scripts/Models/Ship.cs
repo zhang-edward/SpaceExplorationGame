@@ -58,6 +58,7 @@ public class Ship : MonoBehaviour {
 			newCrew.strength = 5;
 			crewList.Add(newCrew);
 		}
+		ViewManager.instance.ShipUI.Init (this);
 	}
 
 	/// <summary>
@@ -89,14 +90,11 @@ public class Ship : MonoBehaviour {
 	/// </summary>
 	/// <param name="amt">Amt.</param>
 	public void AddMoney(int amt) {
-<<<<<<< HEAD
-		money += amt;
-		Debug.Log ("Ship now has " + money + " money");
+		Money += amt;
+		Debug.Log ("Ship now has " + Money + " money");
 	}
 
 	public void RemoveMoney(int amt) {
-		money -= amt;
-=======
 		Money += amt;
 	}
 
@@ -107,6 +105,5 @@ public class Ship : MonoBehaviour {
 	public Dictionary<Resource, int> getResources() {
 		Debug.Log (resources);
 		return resources;
->>>>>>> 8666004... Added ship ui stuff
 	}
 }
