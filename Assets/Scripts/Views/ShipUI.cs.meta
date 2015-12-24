@@ -4,8 +4,12 @@ guid: d269fb4087dbe2448ad35cd537fedf1a
 timeCreated: 1450756408
 =======
 guid: 45a5a69e50173874b987e2265170245b
+<<<<<<< HEAD
 timeCreated: 1450764102
 >>>>>>> 8666004... Added ship ui stuff
+=======
+timeCreated: 1450938812
+>>>>>>> 6d4c8d8... added stuff
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
