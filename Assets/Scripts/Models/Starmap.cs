@@ -2,14 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Starmap : MonoBehaviour {
+public class Starmap {
 
 	/// <summary>
 	/// The planets.
 	/// </summary>
 	public List<Planet> planets; //TODO: Temp public for testing
 
-	/// <summary>
+/*	/// <summary>
 	/// The planet prefab.
 	/// </summary>
 	public GameObject planetPrefab;
@@ -17,12 +17,10 @@ public class Starmap : MonoBehaviour {
 	/// <summary>
 	/// The res prefabs.
 	/// </summary>
-	public GameObject[] resPrefabs = new GameObject[6];
+	public GameObject[] resPrefabs = new GameObject[6];*/
 
-	// Use this for initialization
-	void Awake () {
-		Init ();
-	}
+	public Starmap()
+	{}
 
 	/// <summary>
 	/// Initialize this instance.
@@ -35,10 +33,5 @@ public class Starmap : MonoBehaviour {
 		Planet p2 = new Planet("Planet A");
 		planets.Add (p);
 		planets.Add (p2);
-	}
-
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }
